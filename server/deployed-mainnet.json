@@ -1,0 +1,37 @@
+{
+  "network": "celo",
+  "chainId": 42220,
+  "rpcUrl": "https://forno.celo.org",
+  "escrowAddress": "0x8689F95860A33611bCa3A8AEd41Cc501298727AF",
+  "oracleAddress": "0x99ac8364da2D532045e44958c9D8820C621C496a",
+  "arbiterAddress": "0xB805EFCDA00ae07df354cF84566784CC1CbAd5eF",
+  "feeRecipientAddress": "0xB805EFCDA00ae07df354cF84566784CC1CbAd5eF",
+  "tokens": {
+    "cUSD": {
+      "address": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+      "symbol": "cUSD",
+      "decimals": 18
+    },
+    "USDT": {
+      "address": "0x48065fbBE25f71C9282ddf5e1cD6D6A887483D5e",
+      "symbol": "USDT",
+      "decimals": 6
+    },
+    "USDC": {
+      "address": "0xcebA9300f2b948710d2653dD7B07f33A8B32118C",
+      "symbol": "USDC",
+      "decimals": 6
+    },
+    "cEUR": {
+      "address": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+      "symbol": "cEUR",
+      "decimals": 18
+    },
+    "cREAL": {
+      "address": "0xe8537a3d056DA446677B9E9d6c5dB704EaAb4787",
+      "symbol": "cREAL",
+      "decimals": 18
+    }
+  },
+  "deployedAt": "2026-09-20T19:36:05.694Z"
+}

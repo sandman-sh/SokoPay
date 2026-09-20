@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Environment variables & secrets (CRITICAL)
+.env
+.env.*
+*.env
+*.env.local
+.env.production
+.env.development
+!.env.example
+
+# Hardhat & build artifacts
+artifacts/
+cache/
+frontend/dist/
+dist/
+
+# Server local db / test data
+server/data/
+data/
+
+# Logs & temp
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS metadata
+.DS_Store
+Thumbs.db

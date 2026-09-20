@@ -1,0 +1,44 @@
+{
+  "name": "sokopay",
+  "version": "1.0.0",
+  "description": "SokoPay - Trustless Social Commerce Escrow on Celo for MiniPay, WhatsApp & Instagram Sellers",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "node": "hardhat node",
+    "deploy:local": "hardhat run scripts/deploy.cjs --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.cjs --network celoSepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.cjs --network celo",
+    "server": "node server/index.js",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
+    "dev": "concurrently \"npm run server\" \"npm --prefix frontend run dev\"",
+    "test:all": "npm test && npm --prefix frontend run lint"
+  },
+  "keywords": [
+    "celo",
+    "minipay",
+    "escrow",
+    "agentic-payments",
+    "attribution-tags",
+    "erc-8004",
+    "social-commerce"
+  ],
+  "author": "SokoPay Team",
+  "license": "MIT",
+  "dependencies": {
+    "@celo/attribution-tags": "^0.3.0",
+    "@google/genai": "^2.23.0",
+    "@supabase/supabase-js": "^2.116.0",
+    "concurrently": "^10.0.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "viem": "^2.56.7"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.29.1"
+  }
+}

@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Default Theme: Clean Professional White (Light Mode) */
+  --bg-canvas: #ffffff;
+  --bg-surface: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #ffffff;
+  --bg-highlight: rgba(0, 0, 0, 0.025);
+  --border-hairline: rgba(0, 0, 0, 0.09);
+  --border-active: rgba(0, 0, 0, 0.22);
+  --grid-line: rgba(0, 0, 0, 0.035);
+
+  --text-white: #09090b;
+  --text-steel: #475569;
+  --text-graphite: #64748b;
+
+  --accent-primary: #09090b;
+  --accent-secondary: #059669;
+  --accent-glow: rgba(0, 0, 0, 0.08);
+  --accent-text: #ffffff;
+}
+
+/* Dark Mode (Pitch Black) */
+[data-theme='dark'] {
+  --bg-canvas: #000000;
+  --bg-surface: #060606;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card-hover: rgba(255, 255, 255, 0.04);
+  --bg-input: #000000;
+  --bg-highlight: rgba(255, 255, 255, 0.02);
+  --border-hairline: rgba(255, 255, 255, 0.1);
+  --border-active: rgba(255, 255, 255, 0.25);
+  --grid-line: rgba(255, 255, 255, 0.04);
+
+  --text-white: #ffffff;
+  --text-steel: #94a3b8;
+  --text-graphite: #64748b;
+
+  --accent-primary: #fcff52;
+  --accent-secondary: #35d07f;
+  --accent-glow: rgba(252, 255, 82, 0.2);
+  --accent-text: #000000;
+}
+
+/* Electric Accent Override in Light Mode (Default) */
+[data-accent='electric'] {
+  --accent-primary: #059669;
+  --accent-secondary: #0284c7;
+  --accent-glow: rgba(5, 150, 105, 0.15);
+  --accent-text: #ffffff;
+}
+
+/* Electric Accent Override in Dark Mode */
+[data-theme='dark'][data-accent='electric'] {
+  --accent-primary: #ff5719;
+  --accent-secondary: #ff8a00;
+  --accent-glow: rgba(255, 87, 25, 0.25);
+  --accent-text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 32px 32px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Minimalist Container */
+.hydra-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* Technical Label & Header Styling */
+.hydra-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-graphite);
+}
+
+.hydra-indicator {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-primary);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+/* 4-Column Metric Grid */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  border: 1px solid var(--border-hairline);
+  background: var(--border-hairline);
+  gap: 1px;
+  margin: 28px 0;
+}
+
+.metric-cell {
+  background: var(--bg-canvas);
+  padding: 24px 20px;
+  text-align: left;
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  line-height: 1.1;
+}
+
+.metric-caption {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-graphite);
+  margin-top: 8px;
+}
+
+/* Cards */
+.hydra-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.hydra-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+}
+
+/* Buttons */
+.btn-hydra-primary {
+  background: var(--accent-primary);
+  color: var(--accent-text);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 10px 18px;
+  border: 1px solid var(--accent-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-hydra-primary:hover {
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.btn-hydra-ghost {
+  background: transparent;
+  color: var(--text-white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 9px 16px;
+  border: 1px solid var(--border-hairline);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.btn-hydra-ghost:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(128, 128, 128, 0.05);
+}
+
+/* Technical Monospace Tag / Badges */
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 3px 8px;
+  border: 1px solid var(--border-hairline);
+  background: rgba(128, 128, 128, 0.04);
+  color: var(--text-steel);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.mono-tag-accent {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background: rgba(128, 128, 128, 0.06);
+}
+
+/* Chat formatting without raw asterisks */
+.chat-formatted strong {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.chat-formatted em {
+  font-style: italic;
+  color: var(--text-steel);
+}
+
+.chat-formatted code {
+  font-family: var(--font-mono);
+  background: rgba(128, 128, 128, 0.15);
+  padding: 2px 5px;
+  font-size: 0.8em;
+  border: 1px solid var(--border-hairline);
+}
+
+/* Inputs */
+.hydra-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.hydra-input:focus {
+  border-color: var(--accent-primary);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}

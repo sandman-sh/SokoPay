@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#05070a"/>
+      <stop offset="100%" stop-color="#020305"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fcff52"/>
+      <stop offset="50%" stop-color="#35d07f"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcff52" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#35d07f" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="glowCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#35d07f" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#35d07f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="bannerGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="420" fill="url(#bgGrad)" />
+  <rect width="1200" height="420" fill="url(#bannerGrid)" />
+
+  <!-- Ambient Glow -->
+  <circle cx="980" cy="180" r="280" fill="url(#glowCircle)" />
+  <circle cx="150" cy="320" r="240" fill="url(#glowCircle)" />
+
+  <!-- Top Status Badge -->
+  <g transform="translate(80, 56)">
+    <rect width="270" height="30" rx="4" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+    <circle cx="16" cy="15" r="4.5" fill="#10b981" />
+    <text x="30" y="20" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" letter-spacing="1.5">CELO MAINNET LIVE (42220)</text>
+  </g>
+
+  <!-- SokoPay Title -->
+  <g transform="translate(80, 150)">
+    <text x="0" y="0" fill="#ffffff" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.5">
+      SOKO<tspan fill="url(#accentGrad)">PAY</tspan>
+    </text>
+    <text x="0" y="44" fill="#94a3b8" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="21" font-weight="500">
+      Trustless Social Commerce Escrow on Celo L2
+    </text>
+    <text x="0" y="80" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="400">
+      Multi-Stablecoin Settlement • Opera MiniPay Native • Autonomous Courier Oracles
+    </text>
+  </g>
+
+  <!-- Shield / Lock Graphic Icon on Right -->
+  <g transform="translate(900, 110)">
+    <!-- Decorative geometric background rings -->
+    <circle cx="100" cy="100" r="95" fill="none" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" stroke-dasharray="6,6" />
+    <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(53, 208, 127, 0.2)" stroke-width="1.5" />
+    <polygon points="100,35 155,65 155,125 100,165 45,125 45,65" fill="rgba(252, 255, 82, 0.05)" stroke="url(#shieldGrad)" stroke-width="2" />
+    
+    <!-- Lock Shape -->
+    <rect x="76" y="94" width="48" height="38" rx="4" fill="url(#shieldGrad)" />
+    <path d="M 85 94 L 85 82 C 85 73.7 91.7 67 100 67 C 108.3 67 115 73.7 115 82 L 115 94" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+    <circle cx="100" cy="111" r="3.5" fill="#000000" />
+    <path d="M 100 114 L 100 122" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Bottom Pills / Tags -->
+  <g transform="translate(80, 310)">
+    <!-- Tag 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="170" height="34" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="14" y="21" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">⚡ NON-CUSTODIAL</text>
+    </g>
+
+    <!-- Tag 2 -->
+    <g transform="translate(182, 0)">
+      <rect width="180" height="34" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="14" y="21" fill="#35d07f" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">📱 OPERA MINIPAY</text>
+    </g>
+
+    <!-- Tag 3 -->
+    <g transform="translate(374, 0)">
+      <rect width="180" height="34" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="14" y="21" fill="#fcff52" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">💵 cUSD / USDT / USDC</text>
+    </g>
+
+    <!-- Tag 4 -->
+    <g transform="translate(566, 0)">
+      <rect width="210" height="34" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="14" y="21" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">🔗 ERC-8021 ATTRIBUTION</text>
+    </g>
+
+    <!-- Tag 5 -->
+    <g transform="translate(788, 0)">
+      <rect width="170" height="34" rx="3" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <text x="14" y="21" fill="#a855f7" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="600">🚚 LOGISTICS ORACLE</text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Line -->
+  <rect x="0" y="416" width="1200" height="4" fill="url(#accentGrad)" />
+</svg>
