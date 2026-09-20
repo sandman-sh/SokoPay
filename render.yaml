@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: sokopay-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ACTIVE_NETWORK
+        value: celo-mainnet
+      - key: CELO_RPC_URL
+        value: https://forno.celo.org
+      - key: CELO_ATTRIBUTION_TAG
+        value: celo_sokopay1234
+      - key: ESCROW_ADDRESS_MAINNET
+        value: 0x8689F95860A33611bCa3A8AEd41Cc501298727AF
+      - key: ORACLE_ADDRESS_MAINNET
+        value: 0x99ac8364da2D532045e44958c9D8820C621C496a
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: DEPLOYER_PRIVATE_KEY
+        sync: false

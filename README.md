@@ -269,6 +269,42 @@ The pre-configured `vercel.json` will automatically handle SPA client-side routi
 
 ---
 
+## 🛠️ Deploying Backend on Render
+
+The Express.js API engine is designed to run seamlessly as a **Web Service** on **Render**.
+
+### Step-by-Step Render Deployment:
+1. Log into your [Render Dashboard](https://dashboard.render.com).
+2. Click **"New +"** → **"Web Service"**.
+3. Select your GitHub repository: **`sandman-sh/SokoPay`**.
+4. Configure service settings:
+   - **Name**: `sokopay-api`
+   - **Runtime**: `Node`
+   - **Branch**: `main`
+   - **Build Command**: `npm install`
+   - **Start Command**: `npm start`
+5. Add the following **Environment Variables** in the Render settings:
+   | Variable | Value / Description |
+   | :--- | :--- |
+   | `ACTIVE_NETWORK` | `celo-mainnet` |
+   | `CELO_RPC_URL` | `https://forno.celo.org` |
+   | `CELO_ATTRIBUTION_TAG` | `celo_sokopay1234` |
+   | `ESCROW_ADDRESS_MAINNET` | `0x8689F95860A33611bCa3A8AEd41Cc501298727AF` |
+   | `ORACLE_ADDRESS_MAINNET` | `0x99ac8364da2D532045e44958c9D8820C621C496a` |
+   | `SUPABASE_URL` | Your Supabase project URL |
+   | `SUPABASE_ANON_KEY` | Your Supabase anon public key |
+   | `OPENROUTER_API_KEY` | Your OpenRouter free AI key |
+   | `DEPLOYER_PRIVATE_KEY` | Your funded Celo Mainnet private key |
+6. Click **"Create Web Service"**.
+7. Once deployment finishes, copy your Render public URL (e.g. `https://sokopay-api.onrender.com`).
+8. In your **Vercel Frontend** settings, set:
+   ```env
+   VITE_API_BASE=https://sokopay-api.onrender.com/api
+   ```
+   Now your Vercel frontend communicates directly with your live Render backend!
+
+---
+
 ## 🌐 API Reference
 
 ### Deals & Escrow

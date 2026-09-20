@@ -11,6 +11,7 @@
     "deploy:local": "hardhat run scripts/deploy.cjs --network localhost",
     "deploy:sepolia": "hardhat run scripts/deploy.cjs --network celoSepolia",
     "deploy:mainnet": "hardhat run scripts/deploy.cjs --network celo",
+    "start": "node server/index.js",
     "server": "node server/index.js",
     "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "dev": "concurrently \"npm run server\" \"npm --prefix frontend run dev\"",
