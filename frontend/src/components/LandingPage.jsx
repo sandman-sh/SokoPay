@@ -27,6 +27,7 @@ export default function LandingPage({
   isDarkMode,
   toggleAccent,
   accentMode: _accentMode,
+  targetDealRef,
 }) {
   const escrowAddress = networkInfo?.activeNetwork?.escrowAddress || '0x8689F95860A33611bCa3A8AEd41Cc501298727AF';
   const oracleAddress = networkInfo?.activeNetwork?.oracleAddress || '0x99ac8364da2D532045e44958c9D8820C621C496a';
@@ -124,6 +125,44 @@ export default function LandingPage({
           </button>
         </div>
       </header>
+
+      {/* Target Deal WhatsApp Deep-Link Notice */}
+      {targetDealRef && (
+        <div
+          style={{
+            border: '1px solid var(--accent-primary)',
+            background: 'var(--bg-highlight)',
+            padding: '16px 20px',
+            marginBottom: '32px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '12px',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <ShieldCheck size={22} color="#10b981" />
+            <div>
+              <div style={{ fontWeight: 700, fontSize: '0.92rem' }}>
+                PAYMENT INVOICE FOR DEAL #{targetDealRef}
+              </div>
+              <div style={{ color: 'var(--text-steel)', fontSize: '0.8rem' }}>
+                This escrow deal was shared via WhatsApp. Connect Opera MiniPay or your Web3 wallet to inspect terms and lock deposit.
+              </div>
+            </div>
+          </div>
+          <button
+            onClick={onConnect}
+            disabled={connecting}
+            className="btn-hydra-primary"
+            style={{ padding: '8px 18px', fontSize: '0.75rem', gap: '6px' }}
+          >
+            <Wallet size={14} />
+            <span>{connecting ? 'CONNECTING...' : 'CONNECT TO PAY'}</span>
+          </button>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section style={{ marginBottom: '48px', paddingTop: '16px' }}>

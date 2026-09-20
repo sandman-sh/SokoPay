@@ -114,6 +114,17 @@ export default function App() {
     }
   }, [isDarkMode]);
 
+  // Deep-link detection for WhatsApp / MiniPay deal links (/deal/:ref or ?deal=:ref)
+  const [targetDealRef] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const pathMatch = window.location.pathname.match(/\/deal\/([a-zA-Z0-9_-]+)/);
+      if (pathMatch) return pathMatch[1];
+      const param = new URLSearchParams(window.location.search).get('deal');
+      if (param) return param;
+    }
+    return null;
+  });
+
   // Web3 & Network State
   const [web3Account, setWeb3Account] = useState(null);
   const [web3ChainId, setWeb3ChainId] = useState(null);
@@ -816,7 +827,7 @@ export default function App() {
                 Open this app inside the <strong>Opera Mini</strong> mobile browser to connect your MiniPay wallet natively.
               </p>
               <a
-                href={`celo://wallet/dapp?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'http://localhost:5173')}`}
+                href={`celo://wallet/dapp?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : 'https://0xsokopay.vercel.app')}`}
                 className="btn-hydra-primary"
                 style={{ fontSize: '0.72rem', padding: '6px 14px', display: 'inline-flex', textDecoration: 'none' }}
               >
@@ -925,6 +936,7 @@ export default function App() {
           isDarkMode={isDarkMode}
           toggleAccent={toggleAccent}
           accentMode={accentMode}
+          targetDealRef={targetDealRef}
         />
         {renderAuditModal()}
         {renderWalletModal()}
@@ -1384,6 +1396,7 @@ export default function App() {
           ) : (
             deals
               .filter((deal) => {
+                if (targetDealRef && deal.dealRef.toLowerCase() === targetDealRef.toLowerCase()) return true;
                 if (activeTab === 'all') return true;
                 if (activeTab === 'action_required') {
                   return (
@@ -1395,9 +1408,24 @@ export default function App() {
                 if (activeTab === 'released') return deal.status === 'Released';
                 return true;
               })
+              .sort((a, b) => {
+                if (targetDealRef) {
+                  if (a.dealRef.toLowerCase() === targetDealRef.toLowerCase()) return -1;
+                  if (b.dealRef.toLowerCase() === targetDealRef.toLowerCase()) return 1;
+                }
+                return 0;
+              })
               .map((deal) => {
+                const isTarget = targetDealRef && deal.dealRef.toLowerCase() === targetDealRef.toLowerCase();
                 return (
-                  <div key={deal.dealRef} className="hydra-card">
+                  <div
+                    key={deal.dealRef}
+                    className="hydra-card"
+                    style={{
+                      border: isTarget ? '2px solid var(--accent-primary)' : undefined,
+                      boxShadow: isTarget ? '0 0 20px var(--accent-glow)' : undefined,
+                    }}
+                  >
                     {/* Header */}
                     <div
                       style={{
@@ -1412,6 +1440,11 @@ export default function App() {
                       <div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
                           <span className="mono-tag mono-tag-accent">#{deal.dealRef}</span>
+                          {isTarget && (
+                            <span className="mono-tag mono-tag-accent" style={{ background: 'var(--accent-glow)' }}>
+                              ⭐ DIRECT INVOICE
+                            </span>
+                          )}
                           <span
                             className="mono-tag"
                             style={{
