@@ -12,7 +12,7 @@
 
 **Trustless Social Commerce Escrow on Celo L2 for Opera MiniPay, WhatsApp, Instagram & Telegram Merchants**
 
-[Live Application](https://sokopay.xyz) • [Smart Contracts](#-deployed-smart-contracts) • [Architecture](#-system-architecture) • [Vercel Deployment](#-deploying-on-vercel) • [API Reference](#-api-reference)
+[Live Application](https://0xsokopay.vercel.app/) • [Smart Contracts](#-deployed-smart-contracts) • [Architecture](#-system-architecture) • [Vercel Deployment](#-deploying-on-vercel) • [API Reference](#-api-reference)
 
 </div>
 
@@ -256,7 +256,7 @@ SokoPay is optimized for instant deployment on **Vercel**.
    - **Build Command**: `npm run build`
    - **Output Directory**: `frontend/dist`
 5. Add Environment Variables:
-   - `VITE_API_BASE`: URL of your deployed backend server (e.g. `https://api.sokopay.xyz/api`).
+   - `VITE_API_BASE`: URL of your deployed backend server (e.g. `https://sokopay.onrender.com/api`).
 6. Click **Deploy**.
 
 ### Option B: Deploying Frontend Only via Vercel CLI

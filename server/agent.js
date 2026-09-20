@@ -101,7 +101,7 @@ async function parseWithOpenRouter(message, modelToUse = OPENROUTER_MODEL) {
       headers: {
         "Authorization": `Bearer ${OPENROUTER_API_KEY}`,
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://sokopay.xyz",
+        "HTTP-Referer": "https://0xsokopay.vercel.app",
         "X-Title": "SokoPay Social Commerce Escrow",
       },
       signal: AbortSignal.timeout(25000),
@@ -302,7 +302,7 @@ export function appendAttributionTag(calldataHex, attributionTag = DEFAULT_ATTRI
  * Creates an interactive MiniPay & social chat deep-link for a deal
  */
 export function formatSocialShareMessage(deal) {
-  const baseUrl = process.env.APP_URL || "https://sokopay.xyz";
+  const baseUrl = process.env.APP_URL || "https://0xsokopay.vercel.app";
   const dealUrl = `${baseUrl}/deal/${deal.dealRef}`;
   const miniPayUrl = `celo://wallet/dapp?url=${encodeURIComponent(dealUrl)}`;
 

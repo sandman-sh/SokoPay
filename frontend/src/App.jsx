@@ -1588,7 +1588,7 @@ export default function App() {
                         <button
                           onClick={() =>
                             copyToClipboard(
-                              `celo://wallet/dapp?url=https%3A%2F%2Fsokopay.xyz%2Fdeal%2F${deal.dealRef}`,
+                              `celo://wallet/dapp?url=${encodeURIComponent(`https://0xsokopay.vercel.app/deal/${deal.dealRef}`)}`,
                               `link-${deal.dealRef}`
                             )
                           }
@@ -2190,14 +2190,14 @@ Item: ${showShareModal.title}
 Amount: ${showShareModal.amount} ${showShareModal.tokenSymbol}
 
 Pay safely in Opera MiniPay:
-https://sokopay.xyz/deal/${showShareModal.dealRef}`}
+https://0xsokopay.vercel.app/deal/${showShareModal.dealRef}`}
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <button
                 onClick={() => {
                   const shareText = encodeURIComponent(
-                    `🛡️ SokoPay Protected Deal #${showShareModal.dealRef}\nItem: ${showShareModal.title}\nAmount: ${showShareModal.amount} ${showShareModal.tokenSymbol}\nPay safely via MiniPay: https://sokopay.xyz/deal/${showShareModal.dealRef}`
+                    `🛡️ SokoPay Protected Deal #${showShareModal.dealRef}\nItem: ${showShareModal.title}\nAmount: ${showShareModal.amount} ${showShareModal.tokenSymbol}\nPay safely via MiniPay: https://0xsokopay.vercel.app/deal/${showShareModal.dealRef}`
                   );
                   window.open(`https://api.whatsapp.com/send?text=${shareText}`, '_blank');
                 }}
@@ -2210,7 +2210,7 @@ https://sokopay.xyz/deal/${showShareModal.dealRef}`}
 
               <button
                 onClick={() =>
-                  copyToClipboard(`https://sokopay.xyz/deal/${showShareModal.dealRef}`, 'share-link')
+                  copyToClipboard(`https://0xsokopay.vercel.app/deal/${showShareModal.dealRef}`, 'share-link')
                 }
                 className="btn-hydra-ghost"
                 style={{ justifyContent: 'center' }}
