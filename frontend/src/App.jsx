@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Send,
   Lock,
@@ -175,6 +175,14 @@ export default function App() {
   ]);
   const [chatInput, setChatInput] = useState('');
   const [chatLoading, setChatLoading] = useState(false);
+  const chatEndRef = useRef(null);
+
+  // Auto-scroll chat to latest message on new user message or AI reply
+  useEffect(() => {
+    if (chatOpen) {
+      chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatMessages, chatLoading, chatOpen]);
 
   // Toggle White/Dark Mode (Default is White Background)
   const toggleLightDarkMode = () => {
@@ -2735,6 +2743,7 @@ https://sokopay.xyz/deal/${showShareModal.dealRef}`}
                   [MINING ONCHAIN TRANSACTION...]
                 </div>
               )}
+              <div ref={chatEndRef} />
             </div>
 
             {/* Quick Prompts */}
