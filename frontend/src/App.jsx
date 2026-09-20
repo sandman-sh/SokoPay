@@ -28,7 +28,7 @@ import {
 } from 'lucide-react';
 import LandingPage from './components/LandingPage.jsx';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3001/api';
+const API_BASE = (import.meta.env.VITE_API_BASE || 'http://localhost:3001/api').replace(/\/+$/, '');
 
 /**
  * Robust markdown formatter for SokoBot chat to eliminate raw asterisks (astrit issue)
